@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI onLoad="Ribbon_Load" xmlns="http://schemas.microsoft.com/office/2006/01/customui">
+    <ribbon>
+        <tabs>
+            <tab idMso="TabAddIns">
+                <group id="rdf" label="RDF">
+                    <button id="rdfDataSource" onAction="RDFDataSource_Click" label="Insert RDF data source" showImage="false" />
+                    <button id="changeViewedDimension" onAction="ChangeViewedDimension_Click" label="Change viewed dimension" showImage="false" />
+                    <button id="rdfOutput" onAction="RDFOutput_Click" label="Write RDF data" showImage="false" />
+                </group>
+            </tab>
+        </tabs>
+    </ribbon>
+</customUI>
