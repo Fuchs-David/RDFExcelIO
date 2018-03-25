@@ -34,8 +34,8 @@
     <PublishUrl>C:\Users\David Fuchs\source\repos\RDFExcelIO\RDF to Excel\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
-    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <AutoIncrementApplicationRevision>false</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
@@ -319,7 +319,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="vb" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{DCFE8D25-4715-4C33-9EAB-A34A9EBC9544}" />
         <Host Name="Excel" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="RDFExcelIO.vb" CanonicalName="AddIn" CanActivate="false" IconIndex="1" Blueprint="RDFExcelIO.Designer.xml" GeneratedCode="RDFExcelIO.Designer.vb" PublishedHash="97373E952B1076A3D688DFAFD08302AA7456B16F" />
+          <HostItem Name="ThisAddIn" Code="RDFExcelIO.vb" CanonicalName="AddIn" PublishedHash="97373E952B1076A3D688DFAFD08302AA7456B16F" CanActivate="false" IconIndex="1" Blueprint="RDFExcelIO.Designer.xml" GeneratedCode="RDFExcelIO.Designer.vb" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
