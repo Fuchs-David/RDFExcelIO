@@ -14,7 +14,6 @@ Public Class RDFWriter
     Public Function CreateGraph(ByRef baseURI As Uri) As Boolean
         graph = New Graph()
         graph.BaseUri = baseURI
-        graph.NamespaceMap.Clear()
         currentSheet = CType(Globals.RDFExcelIO.Application.ActiveWorkbook.ActiveSheet, Worksheet)
         currentSheetCells = currentSheet.Cells
         CreateTriples(firstRow, firstCol, firstRow, firstCol)
@@ -22,6 +21,7 @@ Public Class RDFWriter
             graph.Dispose()
             Return False
         End If
+        graph.NamespaceMap.Clear()
         Return True
     End Function
     Private Sub CreateTriples(ByVal firstRow As Integer, ByVal firstCol As Integer, ByVal row As Integer, ByVal col As Integer)
