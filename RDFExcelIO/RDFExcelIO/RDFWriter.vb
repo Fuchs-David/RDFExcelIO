@@ -30,8 +30,10 @@ Public Class RDFWriter
             If Uri.IsWellFormedUriString(CType(currentSheetCells(r, col), Range).Value2.ToString, UriKind.Absolute) Then
                 Dim subject As IUriNode = graph.CreateUriNode(New Uri(CType(currentSheetCells(r, col), Range).Value2.ToString))
                 Dim c As Integer = col + 1
-                While Not CType(currentSheetCells(r, c), Range).Value2 Is Nothing
-                    If firstCol <> c AndAlso CType(currentSheetCells(row, c), Range).Value2.Equals("Subject") Then
+                While Not CType(currentSheetCells(firstRow, c), Range).Value2 Is Nothing
+                    If CType(currentSheetCells(r, c), Range).Value2 Is Nothing Then
+                        ' Just move on to the next column.
+                    ElseIf firstCol <> c AndAlso CType(currentSheetCells(row, c), Range).Value2.Equals("Subject") Then
                         CreateTriples(firstRow, col, row, c)
                     ElseIf Uri.IsWellFormedUriString(CType(currentSheetCells(firstRow, c), Range).Value2.ToString, UriKind.Absolute) _
                        AndAlso
