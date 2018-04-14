@@ -1,0 +1,14 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:db="http://dbpedia.org/resource/">
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Massachusetts">
+    <db:Governor>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/Deval_Patrick" />
+    </db:Governor>
+    <db:Nickname>Bay State</db:Nickname>
+    <db:Capital>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/Boston"> 
+         <db:Nickname>Beantown</db:Nickname>
+      </rdf:Description>
+    </db:Capital>
+  </rdf:Description>
+</rdf:RDF>
