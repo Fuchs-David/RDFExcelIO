@@ -34,7 +34,7 @@
     <PublishUrl>C:\Users\David Fuchs\source\repos\RDFExcelIO\RDF to Excel\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.3</ApplicationVersion>
+    <ApplicationVersion>1.0.0.4</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -229,6 +229,7 @@
   -->
   <ItemGroup>
     <AppDesigner Include="My Project\" />
+    <Compile Include="INodeToRow.vb" />
     <Compile Include="RDFExcelIO.vb">
       <SubType>Code</SubType>
     </Compile>

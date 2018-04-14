@@ -97,24 +97,42 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             currentSheet.UsedRange.Clear()
         End If
         currentSheetCells = currentSheet.Cells()
+        ' Each set contains another level of objects, that are also in the subject position.
+        Dim objectNodeContainers As New Queue(Of Queue(Of INodeToRow))
+        objectNodeContainers.Enqueue(New Queue(Of INodeToRow))
         While nodes.Any
-            WriteRowToTable(nodes.Dequeue, row, firstCol)
+            WriteRowToTable(nodes.Dequeue, row, firstCol, objectNodeContainers.Peek)
             row += 1
+        End While
+        ' Load data about user specified objects into Excel.
+        While objectNodeContainers.Any
+            Dim firstCol As Integer = currentSheetCells.Range("A1").End(XlDirection.xlToRight).Column + 1
+            Dim moreSubjectNodes As Queue(Of INodeToRow) = objectNodeContainers.Dequeue
+            If objectNodeContainers.Count = 0 Then
+                objectNodeContainers.Enqueue(New Queue(Of INodeToRow))
+            End If
+            While moreSubjectNodes.Any
+                Dim node As INodeToRow = moreSubjectNodes.Dequeue
+                WriteRowToTable(node.GetNode, node.GetRow, firstCol, objectNodeContainers.Peek, True)
+            End While
+            If objectNodeContainers.Peek.Count = 0 Then
+                objectNodeContainers.Dequeue()
+            End If
         End While
     End Sub
     Private Sub WriteRowToTable(ByRef subjectNode As INode,
-                                ByRef row As Integer, ByVal col As Integer)
+                                ByRef row As Integer, ByVal col As Integer,
+                                ByRef nodes As Queue(Of INodeToRow), Optional ByVal oneRowPerSubjectOnly As Boolean = False)
         WriteTextToCell(firstRow, col, "Subject")
         WriteTextToCell(row, col, subjectNode.ToSafeString)
         col += 1
         Dim rowOriginal As Integer = row
-        Dim RowMax As Integer = row
+        Dim rowMax As Integer = row
         For Each predicate In GetPredicateNodes(subjectNode)
             Dim c As Integer = col
             For Each triple In graph.Triples.WithSubjectPredicate(subjectNode, predicate)
                 While Not CType(currentSheetCells(firstRow, c), Range).Value Is Nothing
-                    If CType(currentSheetCells(firstRow, c), Range).Value.ToString _
-                             .Equals(predicate.ToSafeString) Then
+                    If CType(currentSheetCells(firstRow, c), Range).Value.ToString.Equals(predicate.ToSafeString) Then
                         Exit While
                     Else
                         c += 1
@@ -123,15 +141,17 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
                 If CType(currentSheetCells(firstRow, c), Range).Value Is Nothing Then
                     WriteNodeToCell(firstRow, c, predicate)
                 End If
-                WriteNodeToCell(row, c, triple.Object, graph.Triples.WithSubject(triple.Object).Count = 0,
-                                        predicatesLeadingToRecursion.Contains(predicate))
+                WriteNodeToCell(row, c, triple.Object, nodes, predicatesLeadingToRecursion.Contains(predicate))
                 predicatesLeadingToRecursion.Add(predicate)
-                AdjustRowMax(row, RowMax)
+                If oneRowPerSubjectOnly Then
+                    Continue For
+                End If
+                AdjustRowMax(row, rowMax)
                 row += 1
             Next
             row = rowOriginal
         Next
-        row = RowMax
+        row = rowMax
     End Sub
     Private Sub AdjustRowMax(ByVal row As Integer, ByRef rowMax As Integer)
         If row > rowMax Then
@@ -162,22 +182,21 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
         AddHyperlink(CType(currentSheetCells(row, col), Range), node.DataType.ToSafeString)
     End Sub
     Private Sub WriteNodeToCell(ByRef row As Integer, ByVal c As Integer, ByRef node As INode,
-                                Optional ByVal recurse As Boolean = False,
+                                Optional ByVal nodes As Queue(Of INodeToRow) = Nothing,
                                 Optional ByVal doNotAskUser As Boolean = False)
         If node.NodeType = NodeType.Literal Then
             WriteLiteralNodeToCell(row, c, CType(node, LiteralNode))
+            Return
         ElseIf node.NodeType = NodeType.Uri _
-               AndAlso recurse _
+               AndAlso nodes IsNot Nothing _
                AndAlso (doNotAskUser OrElse MsgBox("Continue loading information about object nodes?",
                               MsgBoxStyle.YesNo) = MsgBoxResult.Yes) Then
-            If Not SPARQLEndpoint Is Nothing Then
+            If SPARQLEndpoint IsNot Nothing Then
                 QuerySPARQLEndpoint(detailQuery, QP_SUBJECT, node)
             End If
-            WriteTextToCell(row, c, node.ToSafeString)
-            WriteRowToTable(node, row, c + 1)
-        Else
-            WriteTextToCell(row, c, node.ToSafeString)
+            nodes.Enqueue(New INodeToRow(node, row))
         End If
+        WriteTextToCell(row, c, node.ToSafeString)
     End Sub
     Private Sub AddHyperlink(ByRef cell As Range, ByRef address As String)
         If address.Equals(String.Empty) Then
