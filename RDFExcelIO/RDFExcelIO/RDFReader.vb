@@ -124,7 +124,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
                                 ByRef row As Integer, ByVal col As Integer,
                                 ByRef nodes As Queue(Of INodeToRow), Optional ByVal oneRowPerSubjectOnly As Boolean = False)
         WriteTextToCell(firstRow, col, "Subject")
-        WriteTextToCell(row, col, subjectNode.ToSafeString)
+        WriteTextToCell(row, col, ToSafeString(subjectNode))
         col += 1
         Dim rowOriginal As Integer = row
         Dim rowMax As Integer = row
@@ -132,7 +132,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             Dim c As Integer = col
             For Each triple In graph.Triples.WithSubjectPredicate(subjectNode, predicate)
                 While Not CType(currentSheetCells(firstRow, c), Range).Value Is Nothing
-                    If CType(currentSheetCells(firstRow, c), Range).Value.ToString.Equals(predicate.ToSafeString) Then
+                    If CType(currentSheetCells(firstRow, c), Range).Value.ToString.Equals(ToSafeString(predicate)) Then
                         Exit While
                     Else
                         c += 1
@@ -170,7 +170,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
     End Sub
     Private Sub WriteLiteralNodeToCell(ByVal row As Integer, ByVal col As Integer,
                                        ByRef node As LiteralNode)
-        If Regex.Match(node.DataType.ToSafeString, "double|float|hexBinary|decimal|" &
+        If Regex.Match(ToSafeString(node.DataType), "double|float|hexBinary|decimal|" &
                     "integer|long|int|short|byte|" &
                     "nonNegativeInteger|positiveInteger|unsignedLong|unsignedInt|unsignedShort|unsignedByte|" &
                     "nonPositiveInteger|negativeInteger").Success Then
@@ -179,7 +179,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             CType(currentSheetCells(row, col), Range).NumberFormat = "@"
             CType(currentSheetCells(row, col), Range).Value2 = node.Value
         End If
-        AddHyperlink(CType(currentSheetCells(row, col), Range), node.DataType.ToSafeString)
+        AddHyperlink(CType(currentSheetCells(row, col), Range), ToSafeString(node.DataType))
     End Sub
     Private Sub WriteNodeToCell(ByRef row As Integer, ByVal c As Integer, ByRef node As INode,
                                 Optional ByVal nodes As Queue(Of INodeToRow) = Nothing,
@@ -196,7 +196,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             End If
             nodes.Enqueue(New INodeToRow(node, row))
         End If
-        WriteTextToCell(row, c, node.ToSafeString)
+        WriteTextToCell(row, c, ToSafeString(node))
     End Sub
     Private Sub AddHyperlink(ByRef cell As Range, ByRef address As String)
         If address.Equals(String.Empty) Then
