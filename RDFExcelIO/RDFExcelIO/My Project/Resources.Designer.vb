@@ -22,8 +22,8 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
     Friend Module Resources
@@ -58,6 +58,60 @@ Namespace My.Resources
             Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Změnit zobrazenou dimenzi.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_changeViewedDimension() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_changeViewedDimension", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Zadat zdroj dat v RDF.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_rdfDataSource() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_rdfDataSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Zapsat RDF data.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_rdfOutput() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_rdfOutput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Change viewed dimension.
+        '''</summary>
+        Friend ReadOnly Property en_us_changeViewedDimension() As String
+            Get
+                Return ResourceManager.GetString("en_us_changeViewedDimension", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Insert RDF data source.
+        '''</summary>
+        Friend ReadOnly Property en_us_rdfDataSource() As String
+            Get
+                Return ResourceManager.GetString("en_us_rdfDataSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Write RDF data.
+        '''</summary>
+        Friend ReadOnly Property en_us_rdfOutput() As String
+            Get
+                Return ResourceManager.GetString("en_us_rdfOutput", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

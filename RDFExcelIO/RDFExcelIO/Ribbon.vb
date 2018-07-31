@@ -15,11 +15,14 @@
 
 'For more information, see the Ribbon XML documentation in the Visual Studio Tools for Office Help.
 
+Imports System.Text.RegularExpressions
+
 <Runtime.InteropServices.ComVisible(True)> _
 Public Class Ribbon
     Implements Office.IRibbonExtensibility
 
     Private ribbon As Office.IRibbonUI
+    Private cultures As String = "en-US|cz-CS"
 
     Public Sub RDFDataSource_Click(ByVal control As Office.IRibbonControl)
         If RDFExcelIO.GetRDFDataSource() Then
@@ -37,6 +40,14 @@ Public Class Ribbon
 
     Public Function GetCustomUI(ByVal ribbonID As String) As String Implements Office.IRibbonExtensibility.GetCustomUI
         Return GetResourceText("RDFExcelIO.Ribbon.xml")
+    End Function
+
+    Public Function GetLabel(control As Office.IRibbonControl) As String
+        Dim result As String = "en_us"
+        If Regex.IsMatch(Threading.Thread.CurrentThread.CurrentUICulture.Name, cultures) Then
+            result = Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLower.Replace("-", "_")
+        End If
+        Return My.Resources.ResourceManager.GetString(result & "_" & control.Id)
     End Function
 
 #Region "Ribbon Callbacks"
