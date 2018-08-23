@@ -2,6 +2,8 @@
 Public Class SelectSubjects
     Private newSheetIndicator As Boolean = False
     Private Sub SelectMainDimension_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CheckBox1.Text = LocalizeText("newSheet")
+        Button1.Text = LocalizeText("useSelectedItems")
         ListBox1.SelectionMode = Windows.Forms.SelectionMode.MultiExtended
         For Each node As INode In RDFExcelIO.GetNodes
             ListBox1.Items.Add(node)

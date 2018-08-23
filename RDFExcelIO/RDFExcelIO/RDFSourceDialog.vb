@@ -78,6 +78,11 @@
     End Sub
 
     Private Sub RDFSourceDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RadioButton1.Text = LocalizeText("fileInput")
+        RadioButton2.Text = LocalizeText("sparql")
+        Label1.Text = LocalizeText("sparql")
+        Label2.Text = LocalizeText("limit")
+        Button1.Text = LocalizeText("confirmSource")
         OpenFileDialog.Filter = "RDF|*.rdf|TriG|*.trig|TriX|*.trix|NTriples|*.nt|Turtle|*.ttl|All files|*.*"
     End Sub
 End Class
