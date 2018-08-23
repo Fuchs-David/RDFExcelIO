@@ -4,9 +4,9 @@
         <tabs>
             <tab idMso="TabAddIns">
                 <group id="rdf" label="RDF">
-                    <button id="rdfDataSource" onAction="RDFDataSource_Click" label="Insert RDF data source" showImage="false" />
-                    <button id="changeViewedDimension" onAction="ChangeViewedDimension_Click" label="Change viewed dimension" showImage="false" />
-                    <button id="rdfOutput" onAction="RDFOutput_Click" label="Write RDF data" showImage="false" />
+                    <button id="rdfDataSource" onAction="RDFDataSource_Click" getLabel="GetLabel" showImage="false" />
+                    <button id="changeViewedDimension" onAction="ChangeViewedDimension_Click" getLabel="GetLabel" showImage="false" />
+                    <button id="rdfOutput" onAction="RDFOutput_Click" getLabel="GetLabel" showImage="false" />
                 </group>
             </tab>
         </tabs>

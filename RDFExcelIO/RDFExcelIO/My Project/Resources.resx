@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,81 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cs_cz_changeViewedDimension" xml:space="preserve">
+    <value>Změnit zobrazenou dimenzi</value>
+  </data>
+  <data name="cs_cz_confirmSource" xml:space="preserve">
+    <value>Potvrdit zvolený zdroj</value>
+  </data>
+  <data name="cs_cz_connectionFailed" xml:space="preserve">
+    <value>Selhalo připojení ke koncovému bodu SPARQL.</value>
+  </data>
+  <data name="cs_cz_continue" xml:space="preserve">
+    <value>Pokračovat v načítání informací o objektech?</value>
+  </data>
+  <data name="cs_cz_fileInput" xml:space="preserve">
+    <value>Vstup ze souboru</value>
+  </data>
+  <data name="cs_cz_limit" xml:space="preserve">
+    <value>Omezení počtu vrácených položek</value>
+  </data>
+  <data name="cs_cz_newSheet" xml:space="preserve">
+    <value>Vytvořit nový list?</value>
+  </data>
+  <data name="cs_cz_queryFailed" xml:space="preserve">
+    <value>Selhal SPARQL dotaz.</value>
+  </data>
+  <data name="cs_cz_rdfDataSource" xml:space="preserve">
+    <value>Zadat zdroj dat v RDF</value>
+  </data>
+  <data name="cs_cz_rdfOutput" xml:space="preserve">
+    <value>Zapsat RDF data</value>
+  </data>
+  <data name="cs_cz_sparql" xml:space="preserve">
+    <value>URL koncového bodu SPARQL</value>
+  </data>
+  <data name="cs_cz_useSelectedItems" xml:space="preserve">
+    <value>Použít označené položky</value>
+  </data>
+  <data name="en_us_changeViewedDimension" xml:space="preserve">
+    <value>Change viewed dimension</value>
+  </data>
+  <data name="en_us_confirmSource" xml:space="preserve">
+    <value>Confirm chosen source</value>
+  </data>
+  <data name="en_us_connectionFailed" xml:space="preserve">
+    <value>Failed to connect to SPARQL endpoint.</value>
+  </data>
+  <data name="en_us_continue" xml:space="preserve">
+    <value>Continue loading information about object nodes?</value>
+  </data>
+  <data name="en_us_fileInput" xml:space="preserve">
+    <value>File input</value>
+  </data>
+  <data name="en_us_limit" xml:space="preserve">
+    <value>Resource number limit</value>
+  </data>
+  <data name="en_us_newSheet" xml:space="preserve">
+    <value>Create new sheet?</value>
+  </data>
+  <data name="en_us_queryFailed" xml:space="preserve">
+    <value>SPARQL query failed.</value>
+  </data>
+  <data name="en_us_rdfDataSource" xml:space="preserve">
+    <value>Insert RDF data source</value>
+  </data>
+  <data name="en_us_rdfOutput" xml:space="preserve">
+    <value>Write RDF data</value>
+  </data>
+  <data name="en_us_sparql" xml:space="preserve">
+    <value>SPARQL endpoint URL</value>
+  </data>
+  <data name="en_us_useSelectedItems" xml:space="preserve">
+    <value>Use selected items</value>
+  </data>
 </root>

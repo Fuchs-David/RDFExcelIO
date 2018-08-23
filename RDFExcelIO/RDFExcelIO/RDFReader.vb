@@ -52,7 +52,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
         Catch ex As Exception
             SPARQLEndpoint = Nothing
             graph.Dispose()
-            MsgBox("Failed to connect to SPARQL endpoint.", MsgBoxStyle.Critical)
+            MsgBox(LocalizeText("connectionFailed"), MsgBoxStyle.Critical)
         End Try
         QuerySPARQLEndpoint(exploratoryQuery, QP_LIMIT, limit)
         Return Not graph.IsEmpty
@@ -63,7 +63,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             query.SetLiteral(QP_name, QP_value)
             graph.Merge(SPARQLEndpoint.QueryWithResultGraph(query.ToString), True)
         Catch ex As Exception
-            MsgBox("Failed to query SPARQL endpoint.", MsgBoxStyle.Critical)
+            MsgBox(LocalizeText("queryFailed"), MsgBoxStyle.Critical)
         End Try
     End Sub
     Private Sub QuerySPARQLEndpoint(queryString As String, QP_name As String, QP_value As INode)
@@ -73,7 +73,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             query.SetLiteral(QP_LIMIT, limit)
             graph.Merge(SPARQLEndpoint.QueryWithResultGraph(query.ToString), True)
         Catch ex As HttpException
-            MsgBox("Failed to query SPARQL endpoint.", MsgBoxStyle.Critical)
+            MsgBox(LocalizeText("queryFailed"), MsgBoxStyle.Critical)
         End Try
     End Sub
     Public Function GetSubjectNodes() As HashSet(Of INode)
@@ -189,7 +189,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             Return
         ElseIf node.NodeType = NodeType.Uri _
                AndAlso nodes IsNot Nothing _
-               AndAlso (doNotAskUser OrElse MsgBox("Continue loading information about object nodes?",
+               AndAlso (doNotAskUser OrElse MsgBox(LocalizeText("continue"),
                               MsgBoxStyle.YesNo) = MsgBoxResult.Yes) Then
             If SPARQLEndpoint IsNot Nothing Then
                 QuerySPARQLEndpoint(detailQuery, QP_SUBJECT, node)

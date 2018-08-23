@@ -22,8 +22,8 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0"), _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
     Friend Module Resources
@@ -58,6 +58,222 @@ Namespace My.Resources
             Set
                 resourceCulture = value
             End Set
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Změnit zobrazenou dimenzi.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_changeViewedDimension() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_changeViewedDimension", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Potvrdit zvolený zdroj.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_confirmSource() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_confirmSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Selhalo připojení ke koncovému bodu SPARQL..
+        '''</summary>
+        Friend ReadOnly Property cs_cz_connectionFailed() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_connectionFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Pokračovat v načítání informací o objektech?.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_continue() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_continue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Vstup ze souboru.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_fileInput() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_fileInput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Omezení počtu vrácených položek.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_limit() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_limit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Vytvořit nový list?.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_newSheet() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_newSheet", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Selhal SPARQL dotaz..
+        '''</summary>
+        Friend ReadOnly Property cs_cz_queryFailed() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_queryFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Zadat zdroj dat v RDF.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_rdfDataSource() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_rdfDataSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Zapsat RDF data.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_rdfOutput() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_rdfOutput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to URL koncového bodu SPARQL.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_sparql() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_sparql", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Použít označené položky.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_useSelectedItems() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_useSelectedItems", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Change viewed dimension.
+        '''</summary>
+        Friend ReadOnly Property en_us_changeViewedDimension() As String
+            Get
+                Return ResourceManager.GetString("en_us_changeViewedDimension", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Confirm chosen source.
+        '''</summary>
+        Friend ReadOnly Property en_us_confirmSource() As String
+            Get
+                Return ResourceManager.GetString("en_us_confirmSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Failed to connect to SPARQL endpoint..
+        '''</summary>
+        Friend ReadOnly Property en_us_connectionFailed() As String
+            Get
+                Return ResourceManager.GetString("en_us_connectionFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Continue loading information about object nodes?.
+        '''</summary>
+        Friend ReadOnly Property en_us_continue() As String
+            Get
+                Return ResourceManager.GetString("en_us_continue", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to File input.
+        '''</summary>
+        Friend ReadOnly Property en_us_fileInput() As String
+            Get
+                Return ResourceManager.GetString("en_us_fileInput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Resource number limit.
+        '''</summary>
+        Friend ReadOnly Property en_us_limit() As String
+            Get
+                Return ResourceManager.GetString("en_us_limit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Create new sheet?.
+        '''</summary>
+        Friend ReadOnly Property en_us_newSheet() As String
+            Get
+                Return ResourceManager.GetString("en_us_newSheet", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SPARQL query failed..
+        '''</summary>
+        Friend ReadOnly Property en_us_queryFailed() As String
+            Get
+                Return ResourceManager.GetString("en_us_queryFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Insert RDF data source.
+        '''</summary>
+        Friend ReadOnly Property en_us_rdfDataSource() As String
+            Get
+                Return ResourceManager.GetString("en_us_rdfDataSource", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Write RDF data.
+        '''</summary>
+        Friend ReadOnly Property en_us_rdfOutput() As String
+            Get
+                Return ResourceManager.GetString("en_us_rdfOutput", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to SPARQL endpoint URL.
+        '''</summary>
+        Friend ReadOnly Property en_us_sparql() As String
+            Get
+                Return ResourceManager.GetString("en_us_sparql", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Use selected items.
+        '''</summary>
+        Friend ReadOnly Property en_us_useSelectedItems() As String
+            Get
+                Return ResourceManager.GetString("en_us_useSelectedItems", resourceCulture)
+            End Get
         End Property
     End Module
 End Namespace

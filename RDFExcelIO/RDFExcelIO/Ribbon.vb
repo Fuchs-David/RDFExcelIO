@@ -39,6 +39,10 @@ Public Class Ribbon
         Return GetResourceText("RDFExcelIO.Ribbon.xml")
     End Function
 
+    Public Function GetLabel(control As Office.IRibbonControl) As String
+        Return LocalizeText(control.Id)
+    End Function
+
 #Region "Ribbon Callbacks"
     'Create callback methods here. For more information about adding callback methods, 
     'visit https : //go.microsoft.com/fwlink/?LinkID=271226
