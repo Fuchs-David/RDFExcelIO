@@ -141,6 +141,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
                 If CType(currentSheetCells(firstRow, c), Range).Value Is Nothing Then
                     WriteNodeToCell(firstRow, c, predicate)
                 End If
+                WriteNodeToCell(row, firstCol, subjectNode)
                 WriteNodeToCell(row, c, triple.Object, nodes, predicatesLeadingToRecursion.Contains(predicate))
                 predicatesLeadingToRecursion.Add(predicate)
                 If oneRowPerSubjectOnly Then
