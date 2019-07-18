@@ -8,11 +8,11 @@ Imports System.Text.RegularExpressions
 
 Public Class RDFReader
     Implements IDisposable
-    Private Shared QP_LIMIT As String = "limit"
-    Private Shared QP_SUBJECT As String = "subject"
-    Private Shared exploratoryQuery As String = "describe ?subject
+    Private Const QP_LIMIT As String = "limit"
+    Private Const QP_SUBJECT As String = "subject"
+    Private Const exploratoryQuery As String = "describe ?subject
 WHERE  { ?subject ?predicate ?object } LIMIT @" & QP_LIMIT
-    Private Shared detailQuery As String = "describe @" & QP_SUBJECT & "
+    Private Const detailQuery As String = "describe @" & QP_SUBJECT & "
 WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
 
     Private Const firstRow As Integer = 1
