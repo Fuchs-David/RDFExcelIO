@@ -150,6 +150,9 @@
   <data name="cs_cz_sparql" xml:space="preserve">
     <value>URL koncového bodu SPARQL</value>
   </data>
+  <data name="cs_cz_useCustomQuery" xml:space="preserve">
+    <value>Použít vlastní SPARQL dotaz?</value>
+  </data>
   <data name="cs_cz_useSelectedItems" xml:space="preserve">
     <value>Použít označené položky</value>
   </data>
@@ -185,6 +188,9 @@
   </data>
   <data name="en_us_sparql" xml:space="preserve">
     <value>SPARQL endpoint URL</value>
+  </data>
+  <data name="en_us_useCustomQuery" xml:space="preserve">
+    <value>Use custom SPARQL query?</value>
   </data>
   <data name="en_us_useSelectedItems" xml:space="preserve">
     <value>Use selected items</value>

@@ -43,7 +43,7 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
         Return True
     End Function
     ' Get graph from SPARQL endpoint.
-    Public Function ConnectToSPARQLEndpoint(endpoint As Uri, limit As Integer) As Boolean
+    Public Function ConnectToSPARQLEndpoint(endpoint As Uri, limit As Integer, ByRef query As String) As Boolean
         graph = New Graph
         predicatesLeadingToRecursion = New HashSet(Of INode)
         Me.limit = limit
@@ -54,7 +54,11 @@ WHERE  { @" & QP_SUBJECT & " ?predicate ?object } LIMIT @" & QP_LIMIT
             graph.Dispose()
             MsgBox(LocalizeText("connectionFailed"), MsgBoxStyle.Critical)
         End Try
-        QuerySPARQLEndpoint(exploratoryQuery, QP_LIMIT, limit)
+        If query = "" Then
+            QuerySPARQLEndpoint(exploratoryQuery, QP_LIMIT, limit)
+        Else
+            QuerySPARQLEndpoint(query, QP_LIMIT, limit)
+        End If
         Return Not graph.IsEmpty
     End Function
     Private Sub QuerySPARQLEndpoint(queryString As String, QP_name As String, QP_value As Integer)

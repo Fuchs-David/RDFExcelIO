@@ -22,8 +22,8 @@ Public Class RDFExcelIO
     Public Shared Function GetNodes() As HashSet(Of INode)
         Return reader.GetSubjectNodes
     End Function
-    Public Shared Function SpecifyDataSource(SPARQLAddress As Uri, limit As Integer) As Boolean
-        Return reader.ConnectToSPARQLEndpoint(SPARQLAddress, limit)
+    Public Shared Function SpecifyDataSource(SPARQLAddress As Uri, limit As Integer, Optional ByRef query As String = "") As Boolean
+        Return reader.ConnectToSPARQLEndpoint(SPARQLAddress, limit, query)
     End Function
     Public Shared Function SpecifyDataSource(fileName As String) As Boolean
         Return reader.ReadFile(fileName)

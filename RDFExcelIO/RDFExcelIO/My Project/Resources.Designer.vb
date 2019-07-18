@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -160,6 +160,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Použít vlastní SPARQL dotaz?.
+        '''</summary>
+        Friend ReadOnly Property cs_cz_useCustomQuery() As String
+            Get
+                Return ResourceManager.GetString("cs_cz_useCustomQuery", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Použít označené položky.
         '''</summary>
         Friend ReadOnly Property cs_cz_useSelectedItems() As String
@@ -264,6 +273,15 @@ Namespace My.Resources
         Friend ReadOnly Property en_us_sparql() As String
             Get
                 Return ResourceManager.GetString("en_us_sparql", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Use custom SPARQL query?.
+        '''</summary>
+        Friend ReadOnly Property en_us_useCustomQuery() As String
+            Get
+                Return ResourceManager.GetString("en_us_useCustomQuery", resourceCulture)
             End Get
         End Property
         

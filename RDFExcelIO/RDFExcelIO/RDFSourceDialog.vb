@@ -11,6 +11,8 @@
         Button1.Enabled = False
         Label1.Visible = False
         Label2.Visible = False
+        CheckBox1.Checked = False
+        CheckBox1.Visible = False
     End Sub
 
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
@@ -22,6 +24,7 @@
         Button1.Enabled = True
         Label1.Visible = True
         Label2.Visible = True
+        CheckBox1.Visible = True
     End Sub
 
     Private Sub TextBox1_GotFocus(sender As Object, e As EventArgs) Handles TextBox1.GotFocus
@@ -83,6 +86,15 @@
         Label1.Text = LocalizeText("sparql")
         Label2.Text = LocalizeText("limit")
         Button1.Text = LocalizeText("confirmSource")
+        CheckBox1.Text = LocalizeText("useCustomQuery")
         OpenFileDialog.Filter = "RDF|*.rdf|TriG|*.trig|TriX|*.trix|NTriples|*.nt|Turtle|*.ttl|All files|*.*"
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If TextBox3.ReadOnly Then
+            TextBox3.ReadOnly = False
+        Else
+            TextBox3.ReadOnly = True
+        End If
     End Sub
 End Class
