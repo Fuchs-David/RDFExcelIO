@@ -61,10 +61,14 @@
             TextBox2.Enabled = False
             Try
                 Dim limit As Integer
+                Dim query As String = ""
                 If Not Integer.TryParse(TextBox2.Text, limit) Then
                     limit = DEFAULT_LIMIT
                 End If
-                If RDFExcelIO.SpecifyDataSource(New Uri(TextBox1.Text), limit) Then
+                If CheckBox1.Checked Then
+                    query = TextBox3.Text
+                End If
+                If RDFExcelIO.SpecifyDataSource(New Uri(TextBox1.Text), limit, query) Then
                     DialogResult = Windows.Forms.DialogResult.Yes
                 End If
             Catch ex As Exception
