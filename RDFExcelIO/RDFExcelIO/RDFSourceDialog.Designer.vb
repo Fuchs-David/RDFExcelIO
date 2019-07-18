@@ -24,11 +24,11 @@ Partial Class RDFSourceDialog
     Private Sub InitializeComponent()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
@@ -42,23 +42,12 @@ Partial Class RDFSourceDialog
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.RadioButton2)
         Me.Panel1.Controls.Add(Me.RadioButton1)
+        Me.Panel1.Controls.Add(Me.RadioButton2)
         Me.Panel1.Location = New System.Drawing.Point(12, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(458, 110)
         Me.Panel1.TabIndex = 0
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(18, 58)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(176, 21)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "SPARQL endpoint URL"
-        Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'RadioButton1
         '
@@ -71,6 +60,17 @@ Partial Class RDFSourceDialog
         Me.RadioButton1.Text = "File input"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(18, 58)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(176, 21)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "SPARQL endpoint URL"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'TextBox1
         '
         Me.TextBox1.Location = New System.Drawing.Point(13, 129)
@@ -78,23 +78,23 @@ Partial Class RDFSourceDialog
         Me.TextBox1.Size = New System.Drawing.Size(457, 22)
         Me.TextBox1.TabIndex = 1
         '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(13, 158)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(457, 22)
+        Me.TextBox2.TabIndex = 2
+        Me.TextBox2.Visible = False
+        '
         'Button1
         '
         Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(13, 186)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(457, 63)
-        Me.Button1.TabIndex = 2
+        Me.Button1.TabIndex = 3
         Me.Button1.Text = "Confirm chosen source"
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(13, 158)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(457, 22)
-        Me.TextBox2.TabIndex = 3
-        Me.TextBox2.Visible = False
         '
         'Label1
         '
