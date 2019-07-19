@@ -24,6 +24,7 @@ Partial Class RDFSourceDialog
     Private Sub InitializeComponent()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -32,7 +33,6 @@ Partial Class RDFSourceDialog
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -51,6 +51,17 @@ Partial Class RDFSourceDialog
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(614, 95)
         Me.Panel1.TabIndex = 0
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(18, 57)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(204, 21)
+        Me.CheckBox1.TabIndex = 2
+        Me.CheckBox1.Text = "Use custom SPARQL query"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.CheckBox1.Visible = False
         '
         'RadioButton1
         '
@@ -130,19 +141,9 @@ Partial Class RDFSourceDialog
         Me.TextBox3.Multiline = True
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
+        Me.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.TextBox3.Size = New System.Drawing.Size(1238, 463)
         Me.TextBox3.TabIndex = 4
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(18, 57)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(204, 21)
-        Me.CheckBox1.TabIndex = 2
-        Me.CheckBox1.Text = "Use custom SPARQL query"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        Me.CheckBox1.Visible = False
         '
         'RDFSourceDialog
         '
