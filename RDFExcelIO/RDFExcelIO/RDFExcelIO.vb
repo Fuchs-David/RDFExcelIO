@@ -6,6 +6,9 @@ Public Class RDFExcelIO
     Private Shared rdfSourcgDialog As RDFSourceDialog
     Private Shared subjectDialog As SelectSubjects
     Private Shared saveFileDialog As New SaveFileDialog
+    Private Shared lastQuery As String = ""
+    Private Shared lastOption As String = ""
+    Private Shared lastEndpoint As Uri
 
     Public Shared Sub ConvertRDF(ByRef node As Queue(Of INode), ByVal newSheetIndicator As Boolean)
         reader.ConvertRDFToTable(node, newSheetIndicator)
@@ -22,8 +25,14 @@ Public Class RDFExcelIO
     Public Shared Function GetNodes() As HashSet(Of INode)
         Return reader.GetSubjectNodes
     End Function
-    Public Shared Function SpecifyDataSource(SPARQLAddress As Uri, limit As Integer, ByRef query As String) As Boolean
-        Return reader.ConnectToSPARQLEndpoint(SPARQLAddress, limit, query)
+    Public Shared Function SpecifyDataSource(endpointURL As Uri, limit As Integer,
+                                             ByRef query As String, currentOption As String) As Boolean
+        lastOption = currentOption
+        lastEndpoint = endpointURL
+        If Not query = "" Then
+            lastQuery = query
+        End If
+        Return reader.ConnectToSPARQLEndpoint(endpointURL, limit, query)
     End Function
     Public Shared Function SpecifyDataSource(fileName As String) As Boolean
         Return reader.ReadFile(fileName)
@@ -36,6 +45,15 @@ Public Class RDFExcelIO
         subjectDialog = New SelectSubjects
         subjectDialog.Show()
     End Sub
+    Public Shared Function GetLastQuery() As String
+        Return lastQuery
+    End Function
+    Public Shared Function GetLastOption() As String
+        Return lastOption
+    End Function
+    Public Shared Function GetLastEndpoint() As Uri
+        Return lastEndpoint
+    End Function
 
     Protected Overrides Function CreateRibbonExtensibilityObject() _
                                     As Microsoft.Office.Core.IRibbonExtensibility

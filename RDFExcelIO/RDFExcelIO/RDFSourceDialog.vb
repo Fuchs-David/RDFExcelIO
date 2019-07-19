@@ -62,13 +62,20 @@
             Try
                 Dim limit As Integer
                 Dim query As String = ""
+                Dim currentOption As String = ""
                 If Not Integer.TryParse(TextBox2.Text, limit) Then
                     limit = DEFAULT_LIMIT
                 End If
+                If RadioButton1.Checked Then
+                    currentOption = "file"
+                ElseIf RadioButton2.Checked Then
+                    currentOption = "SPARQL"
+                End If
                 If CheckBox1.Checked Then
                     query = TextBox3.Text
+                    currentOption = "customSPARQL"
                 End If
-                If RDFExcelIO.SpecifyDataSource(New Uri(TextBox1.Text), limit, query) Then
+                If RDFExcelIO.SpecifyDataSource(New Uri(TextBox1.Text), limit, query, currentOption) Then
                     DialogResult = Windows.Forms.DialogResult.Yes
                 End If
             Catch ex As Exception
@@ -91,14 +98,30 @@
         Label2.Text = LocalizeText("limit")
         Button1.Text = LocalizeText("confirmSource")
         CheckBox1.Text = LocalizeText("useCustomQuery")
+        Select Case RDFExcelIO.GetLastOption
+            Case "file"
+                RadioButton1.Checked = True
+            Case "SPARQL"
+                RadioButton2.Checked = True
+                Label1.Visible = False
+            Case "customSPARQL"
+                RadioButton2.Checked = True
+                CheckBox1.Checked = True
+                Label1.Visible = False
+        End Select
         OpenFileDialog.Filter = "RDF|*.rdf|TriG|*.trig|TriX|*.trix|NTriples|*.nt|Turtle|*.ttl|All files|*.*"
+        TextBox1.Text = ToSafeString(RDFExcelIO.GetLastEndpoint)
+        TextBox3.Text = RDFExcelIO.GetLastQuery
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If TextBox3.ReadOnly Then
             TextBox3.ReadOnly = False
+            TextBox2.Clear()
+            TextBox2.ReadOnly = True
         Else
             TextBox3.ReadOnly = True
+            TextBox2.ReadOnly = False
         End If
     End Sub
 End Class
